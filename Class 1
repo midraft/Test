@@ -1,0 +1,70 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp4
+{
+    class Program
+    {
+        private static List<string> _namesFugure;
+        private string _consoleRead;
+
+        public static void Main(string[] args)
+        {
+
+            _namesFugure = new List<string>(); 
+            Naming(_namesFugure);//добавили в лист название фигур
+            Main:
+                var _string = Console.ReadLine();
+
+                for (int i = 0 ; i < _namesFugure.Count; i++)
+                {
+                    if (_string == _namesFugure[i])
+                    {
+                        Console.WriteLine("Это фигура " + _namesFugure[i]);    
+                    break;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Нет такой фигуры");
+                    }
+                }
+
+                Console.ReadKey();
+            goto Main;
+        }
+
+        private static void Naming (List<string> names)
+        {
+            names.Add("Circle");
+            names.Add("Square");
+            names.Add("Rectangle");
+        }
+        //todo Пофиксть эту хуйню !
+    }
+
+    public class Circle
+    {
+        public float CenterX;
+        public float CenterY;
+        public float Radius;
+        
+    }
+
+    public class Square
+    {
+        public float Left;
+        public float Top;
+        public float Side;
+    }
+
+    public class Rectangle
+    {
+        public float Left;
+        public float Top;
+        public float Width;
+        public float Height;
+    }
+}
